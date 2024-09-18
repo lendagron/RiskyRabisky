@@ -1,10 +1,10 @@
 // Armazena as imagens e seus votos
 var images = [
-  { id: 1, votes: 0 },
-  { id: 2, votes: 0 },
-  { id: 3, votes: 0 },
-  { id: 4, votes: 0 },
-  { id: 5, votes: 0 }
+  { id: 1, votes: 0, order: 0 },
+  { id: 2, votes: 0, order: 1 },
+  { id: 3, votes: 0, order: 2 },
+  { id: 4, votes: 0, order: 3 },
+  { id: 5, votes: 0, order: 4 }
 ];
 
 // Função para atualizar a lista de imagens
@@ -21,7 +21,7 @@ function updateImageList() {
       vote(image.id);
     };
     var listItem = document.createElement('li');
-    listItem.style.order = index; // Defina a ordem do item
+    listItem.style.order = image.order; // Defina a ordem do item com base na propriedade order
     listItem.appendChild(imageElement);
     listItem.appendChild(button);
     imageList.appendChild(listItem);
@@ -39,6 +39,10 @@ function vote(imageId) {
     // Reordena as imagens com base nos votos
     images.sort(function(a, b) {
       return b.votes - a.votes;
+    });
+    // Atualiza a ordem das imagens
+    images.forEach(function(image, index) {
+      image.order = index;
     });
     updateImageList();
   } else {
