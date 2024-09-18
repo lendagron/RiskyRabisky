@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .image-list-container {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .image-container img {
+    width: 150%; /* ajuste o tamanho da imagem */
+    margin-bottom: 10px; /* adicione um espaço entre a imagem e o botão */
+  }
+  .image-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .image-list li {
+    margin: 10px;
+    max-width: 200px;
+  }
+  
+  .image-list img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .image-list button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .image-list button:hover {
+    background-color: #3e8e41;
+  }
+  
+  /* Responsividade para dispositivos móveis */
+  @media (max-width: 890px) {
+    .container {
+      margin: 20px auto;
+      padding: 10px;
+    }
+    .image-list img {
+      width: 150px;
+      height: 150px;
+    }
+  }
