@@ -7,17 +7,25 @@ var images = [
   { id: 5, votes: 0, order: 4 }
 ];
 
-// Função para salvar a ordem das imagens no armazenamento local
-function saveImageOrder() {
-  localStorage.setItem('imageOrder', JSON.stringify(images));
+// Função para enviar a ordem das imagens para o servidor
+function saveImageOrderToServer() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/save-image-order', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(images));
 }
 
-// Função para carregar a ordem das imagens do armazenamento local
-function loadImageOrder() {
-  var storedImages = localStorage.getItem('imageOrder');
-  if (storedImages) {
-    images = JSON.parse(storedImages);
-  }
+// Função para recuperar a ordem das imagens do servidor
+function loadImageOrderFromServer() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/get-image-order', true);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      images = JSON.parse(xhr.responseText);
+      updateImageList();
+    }
+  };
+  xhr.send();
 }
 
 // Função para atualizar a lista de imagens
@@ -57,15 +65,15 @@ function vote(imageId) {
     images.forEach(function(image, index) {
       image.order = index;
     });
-    saveImageOrder(); // Salva a ordem das imagens no armazenamento local
+    saveImageOrderToServer(); // Envia a ordem das imagens para o servidor
     updateImageList();
   } else {
     console.log('Você já votou nessa imagem!');
   }
 }
 
-// Carrega a ordem das imagens do armazenamento local
-loadImageOrder();
+// Recupera a ordem das imagens do servidor
+loadImageOrderFromServer();
 
 // Inicializa a lista de imagens
 updateImageList();
