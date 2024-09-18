@@ -1,26 +1,30 @@
-const mongoose = require('mongoose');
+const fs = require('fs');
 
-mongoose.connect('mongodb://localhost/images', { useNewUrlParser: true, useUnifiedTopology: true });
+let images = [];
 
-const imageSchema = new mongoose.Schema({
-  id: Number,
-  votes: Number,
-  order: Number
+// Carrega os votos do arquivo
+fs.readFile('votes.json', (err, data) => {
+  if (err) {
+    console.error(err);
+  } else {
+    images = JSON.parse(data);
+  }
 });
 
-const Image = mongoose.model('Image', imageSchema);
+// Salva os votos no arquivo
+function saveImageOrder(images) {
+  fs.writeFile('votes.json', JSON.stringify(images), (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Votos salvos com sucesso!');
+    }
+  });
+}
 
-module.exports = {
-  saveImageOrder: function(images) {
-    Image.insertMany(images, function(err, docs) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('Ordem das imagens salva com sucesso!');
-      }
-    });
-  },
-  getImageOrder: function() {
-    return Image.find().sort({ order: 1 });
-  }
-};
+// Recupera os votos do arquivo
+function getImageOrder() {
+  return images;
+}
+
+module.exports = { saveImageOrder, getImageOrder };
