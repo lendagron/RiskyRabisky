@@ -7,6 +7,19 @@ var images = [
   { id: 5, votes: 0, order: 4 }
 ];
 
+// Função para salvar a ordem das imagens no armazenamento local
+function saveImageOrder() {
+  localStorage.setItem('imageOrder', JSON.stringify(images));
+}
+
+// Função para carregar a ordem das imagens do armazenamento local
+function loadImageOrder() {
+  var storedImages = localStorage.getItem('imageOrder');
+  if (storedImages) {
+    images = JSON.parse(storedImages);
+  }
+}
+
 // Função para atualizar a lista de imagens
 function updateImageList() {
   var imageList = document.getElementById('image-list');
@@ -44,11 +57,15 @@ function vote(imageId) {
     images.forEach(function(image, index) {
       image.order = index;
     });
+    saveImageOrder(); // Salva a ordem das imagens no armazenamento local
     updateImageList();
   } else {
     console.log('Você já votou nessa imagem!');
   }
 }
+
+// Carrega a ordem das imagens do armazenamento local
+loadImageOrder();
 
 // Inicializa a lista de imagens
 updateImageList();
