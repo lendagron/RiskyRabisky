@@ -12,6 +12,14 @@ function saveImageOrderToServer() {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', '/save-image-order', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      console.log('Ordem das imagens salva com sucesso!');
+    }
+  };
+  xhr.onerror = function() {
+    console.error('Erro ao salvar ordem das imagens:', xhr.statusText);
+  };
   xhr.send(JSON.stringify(images));
 }
 
