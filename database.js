@@ -1,9 +1,9 @@
-const fs = require('fs');
+const fs = require("fs");
 
 let images = [];
 
 // Carrega os votos do arquivo
-fs.readFile('votes.json', (err, data) => {
+fs.readFile("votes.json", (err, data) => {
   if (err) {
     console.error(err);
   } else {
@@ -13,11 +13,12 @@ fs.readFile('votes.json', (err, data) => {
 
 // Salva os votos no arquivo
 function saveImageOrder(images) {
-  fs.writeFile('votes.json', JSON.stringify(images), (err) => {
+  fs.writeFile("votes.json", JSON.stringify(images), (err) => {
+    //TODO
     if (err) {
       console.error(err);
     } else {
-      console.log('Votos salvos com sucesso!');
+      console.log("Votos salvos com sucesso!");
     }
   });
 }
