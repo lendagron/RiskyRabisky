@@ -84,4 +84,4 @@ function vote(imageId) {
 loadImageOrderFromServer();
 
 // Inicializa a lista de imagens
-updateImageList();  v
+updateImageList();
