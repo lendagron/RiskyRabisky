@@ -42,7 +42,7 @@ function updateImageList() {
   imageList.innerHTML = '';
   images.forEach(function(image, index) {
     var imageElement = document.createElement('img');
-    imageElement.src = 'Smolder_' + image.id + '.jpg';
+    imageElement.src = 'Smolder_' + image.id + '.jpeg';
     imageElement.alt = 'Imagem ' + image.id;
     var button = document.createElement('button');
     button.textContent = 'Votar';
