@@ -4,7 +4,8 @@ var images = [
   { id: 2, votes: 0, order: 1 },
   { id: 3, votes: 0, order: 2 },
   { id: 4, votes: 0, order: 3 },
-  { id: 5, votes: 0, order: 4 }
+  { id: 5, votes: 0, order: 4 },
+  { id: 6, votes: 0, order: 5 },
 ];
 
 // Função para enviar a ordem das imagens para o servidor
