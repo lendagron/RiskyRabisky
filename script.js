@@ -22,7 +22,6 @@ function saveImageOrderToServer() {
   };
   xhr.send(JSON.stringify(images));
 }
-
 // Função para recuperar a ordem das imagens do servidor
 function loadImageOrderFromServer() {
   var xhr = new XMLHttpRequest();
@@ -76,7 +75,7 @@ function vote(imageId) {
     saveImageOrderToServer(); // Envia a ordem das imagens para o servidor
     updateImageList();
   } else {
-    console.log("Você já votou nessa imagem!");
+    document.console.log("Você já votou nessa imagem!");
   }
 }
 

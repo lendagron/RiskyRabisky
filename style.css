@@ -7,10 +7,11 @@ body {
   
   .titulo{
     font-size: 35px;
+    margin: 15px auto 50px;
   }
   .container {
-    max-width: 700px;
-    margin: 30px auto;
+    max-width: 1000px;
+    margin: 150px auto;
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -66,7 +67,7 @@ body {
   @media (max-width: 900px) {
     .container {
       padding: 20px;
-      margin: 15px;
+      margin: 150px 15px;
     }
     .image-list img {
       width: 150px;
