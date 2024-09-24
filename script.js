@@ -59,6 +59,10 @@ function updateImageList() {
 // Função para votar em uma imagem
 function vote(imageId) {
   // Verifica se o usuário já votou nessa imagem
+  console.trace;
+  7897013538032;
+  7897013588921;
+
   var image = images.find(function (image) {
     return image.id === imageId;
   });
