@@ -5,15 +5,19 @@ body {
     background-color: rgba(37, 33, 93, 1);
   }
   
+  .titulo{
+    font-size: 35px;
+  }
   .container {
-    max-width: 500px;
-    margin: 40px auto;
+    max-width: 700px;
+    margin: 30px auto;
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgb(0, 0, 0);
     border-radius: 10px;
   }
+
   
   .image-list-container {
     text-align: center;
@@ -42,7 +46,7 @@ body {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 15px;
   }
   
   .image-list button {
@@ -53,19 +57,27 @@ body {
     font-size: 16px;
     cursor: pointer;
   }
-  
+
   .image-list button:hover {
     background-color: #3e8e41;
   }
   
   /* Responsividade para dispositivos móveis */
-  @media (max-width: 890px) {
+  @media (max-width: 900px) {
     .container {
-      margin: 20px auto;
-      padding: 10px;
+      padding: 20px;
+      margin: 15px;
     }
     .image-list img {
       width: 150px;
       height: 150px;
+    }
+    .image-list button {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 36px;
+      cursor: pointer;
     }
   }
