@@ -14,7 +14,6 @@ fs.readFile("votes.json", (err, data) => {
 // Salva os votos no arquivo
 function saveImageOrder(images) {
   fs.writeFile("votes.json", JSON.stringify(images), (err) => {
-    //TODO
     if (err) {
       console.error(err);
     } else {
